@@ -1,5 +1,6 @@
 package com.apnaclassroom.controller;
 
+import com.apnaclassroom.model.FeeReceipt;
 import com.apnaclassroom.model.student.Student;
 import com.apnaclassroom.model.user.RegisterResponse;
 import com.apnaclassroom.model.user.User;
@@ -12,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -87,8 +89,18 @@ public class StudentController {
 
     @GetMapping(path = "/exportStudents", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
-    public byte[] exportStudentsData(){
+    public void exportStudentsData() throws IOException {
         LOG.info("Inside exporting student data in excel method");
-        return studentService.exportStudentsData();
+        studentService.exportStudentsData();
+    }
+
+    @PostMapping(value = "/generateReceipt", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
+    public void generatePaymentReceipt(@RequestBody FeeReceipt feeReceipt,
+                                            @AuthenticationPrincipal User user) throws IOException {
+        LOG.info("Inside generate payment receipt method");
+        if(Objects.nonNull(feeReceipt) && !StringUtils.isNullOrEmpty(user.getUsername())){
+             studentService.generatePaymentReceipt(feeReceipt, user.getUsername());
+        }
     }
 }

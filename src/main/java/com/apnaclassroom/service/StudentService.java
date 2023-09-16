@@ -2,6 +2,7 @@ package com.apnaclassroom.service;
 
 import com.apnaclassroom.dao.StudentDao;
 import com.apnaclassroom.model.Address;
+import com.apnaclassroom.model.FeeReceipt;
 import com.apnaclassroom.model.student.Student;
 import com.apnaclassroom.model.user.RegisterResponse;
 import com.apnaclassroom.util.FileUtilityService;
@@ -15,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -187,7 +189,11 @@ public class StudentService {
         oldData.setAddress(Objects.nonNull(newData.getAddress()) ? newData.getAddress() : oldData.getAddress());
     }
 
-    public byte[] exportStudentsData(){
-        return fileUtilityService.generateStudentDataExcel(getAllStudentsData());
+    public void exportStudentsData() throws IOException {
+        fileUtilityService.generateStudentDataExcel(getAllStudentsData());
+    }
+
+    public void generatePaymentReceipt(FeeReceipt feeReceipt, String generateBy) throws IOException {
+        fileUtilityService.generatePaymentReceipt(feeReceipt, generateBy);
     }
 }
