@@ -26,29 +26,29 @@ public class ManagerDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(ManagerDao.class);
 
-    private static final String INSERT_MANAGER_TABLE = "INSERT INTO MANAGERS(manager_id, first_name, last_name, email, " +
+    private static final String INSERT_MANAGER_TABLE = "INSERT INTO managers(manager_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, street, city, state, country, profile_photo" +
             "doj, dol, role, isEnabled, create_ts, update_ts, create_by, update_by, " +
             "password, old_password, position, reporting_to, office_location, official_email) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private static final String INSERT_MANAGER_HISTORY_TABLE = "INSERT INTO MANAGERS_AUDIT(manager_id, first_name, last_name, email, " +
+    private static final String INSERT_MANAGER_HISTORY_TABLE = "INSERT INTO managers_audit(manager_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, street, city, state, country, profile_photo" +
             "doj, dol, role, isEnabled, create_ts, update_ts, create_by, update_by, " +
             "password, old_password, position, reporting_to, office_location, official_email) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SELECT_MANAGER_DATA_BY_ID = "SELECT * FROM MANAGERS WHERE manager_id = ?";
+    private static final String SELECT_MANAGER_DATA_BY_ID = "SELECT * FROM managers WHERE manager_id = ?";
 
-    private static final String SELECT_ALL_MANAGERS_DATA = "SELECT * FROM MANAGERS";
+    private static final String SELECT_ALL_MANAGERS_DATA = "SELECT * FROM managers";
 
-    private static final String DELETE_MANAGER_DATA_BY_ID = "DELETE FROM MANAGERS WHERE manager_id = ?";
+    private static final String DELETE_MANAGER_DATA_BY_ID = "DELETE FROM managers WHERE manager_id = ?";
 
-    private static final String UPDATE_MANAGER_DATA_BY_ID = "UPDATE MANAGERS SET first_name=?, last_name=?, " +
+    private static final String UPDATE_MANAGER_DATA_BY_ID = "UPDATE managers SET first_name=?, last_name=?, " +
             "phone=?, dob=?, gender=?, father_name=?, mother_name=?, street=?, city=?, state=?, country=?, " +
             "profile_photo=?, doj=?, dol=?, role=?, isEnabled=?, create_ts, update_ts=?," +
             "create_by, update_by=?, position=?, reporting_to=?, office_location=?, official_email=? WHERE manager_id = ?";
 
-    private static final String QUERY_TO_CHECK_REGISTERED_MANAGER = "SELECT * FROM MANAGERS where first_name=? " +
+    private static final String QUERY_TO_CHECK_REGISTERED_MANAGER = "SELECT * FROM managers where first_name=? " +
             "AND phone=? AND father_name=? AND email=?";
 
     private final PasswordEncoder passwordEncoder;

@@ -20,15 +20,15 @@ public class TokenDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(TokenDao.class);
 
-    private static final String INSERT_INTO_TOKENS="INSERT INTO TOKENS (token_id, expired, revoked, token, token_type, create_ts, update_ts, user_id) VALUES(?,?,?,?,?,?,?,?)";
+    private static final String INSERT_INTO_TOKENS="INSERT INTO tokens (token_id, expired, revoked, token, token_type, create_ts, update_ts, user_id) VALUES(?,?,?,?,?,?,?,?)";
 
-    private static final String SELECT_TOKENS_BY_USERID="SELECT * FROM TOKENS where expired=0 and revoked=0 and user_id = ?";
+    private static final String SELECT_TOKENS_BY_USERID="SELECT * FROM tokens where expired=0 and revoked=0 and user_id = ?";
 
-    private static final String SELECT_TOKENS_BY_TOKEN_ID="SELECT * FROM TOKENS where token_id = ?";
+    private static final String SELECT_TOKENS_BY_TOKEN_ID="SELECT * FROM tokens where token_id = ?";
 
-    private static final String UPDATE_TOKEN_TO_EXPIRE="UPDATE TOKENS SET expired= ?, revoked = ? where token_id = ?";
+    private static final String UPDATE_TOKEN_TO_EXPIRE="UPDATE tokens SET expired= ?, revoked = ? where token_id = ?";
 
-    private static final String DELETE_EXPIRED_TOKEN_="DELETE FROM TOKENS where expired=1 and revoked=1";
+    private static final String DELETE_EXPIRED_TOKEN_="DELETE FROM tokens where expired=1 and revoked=1";
 
     private final DataSource dataSource;
 

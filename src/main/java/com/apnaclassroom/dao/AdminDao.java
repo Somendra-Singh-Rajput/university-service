@@ -26,29 +26,29 @@ public class AdminDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(AdminDao.class);
 
-    private static final String INSERT_ADMIN_TABLE = "INSERT INTO ADMINS(admin_id, first_name, last_name, email, " +
+    private static final String INSERT_ADMIN_TABLE = "INSERT INTO admins(admin_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, street, city, state, country, profile_photo" +
             "doj, dol, role, isEnabled, create_ts, update_ts, create_by, update_by, " +
             "password, old_password, position, office_location, official_email) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private static final String INSERT_ADMIN_HISTORY_TABLE = "INSERT INTO ADMINS_AUDIT(admin_id, first_name, last_name, email, " +
+    private static final String INSERT_ADMIN_HISTORY_TABLE = "INSERT INTO admins_audit(admin_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, street, city, state, country, profile_photo" +
             "doj, dol, role, isEnabled, create_ts, update_ts, create_by, update_by, " +
             "password, old_password, position, office_location, official_email) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SELECT_ADMIN_DATA_BY_ID = "SELECT * FROM ADMINS WHERE admin_id = ?";
+    private static final String SELECT_ADMIN_DATA_BY_ID = "SELECT * FROM admins WHERE admin_id = ?";
 
-    private static final String SELECT_ALL_ADMINS_DATA = "SELECT * FROM ADMINS";
+    private static final String SELECT_ALL_ADMINS_DATA = "SELECT * FROM admins";
 
-    private static final String DELETE_ADMIN_DATA_BY_ID = "DELETE FROM ADMINS WHERE admin_id = ?";
+    private static final String DELETE_ADMIN_DATA_BY_ID = "DELETE FROM admins WHERE admin_id = ?";
 
-    private static final String UPDATE_ADMIN_DATA_BY_ID = "UPDATE ADMINS SET first_name=?, last_name=?, " +
+    private static final String UPDATE_ADMIN_DATA_BY_ID = "UPDATE admins SET first_name=?, last_name=?, " +
             "phone=?, dob=?, gender=?, father_name=?, mother_name=?, street=?, city=?, state=?, country=?, " +
             "profile_photo=?, doj=?, dol=?, role=?, isEnabled=?, create_ts, update_ts=?," +
             "create_by, update_by=?, position=?, office_location=?, official_email=? WHERE admin_id = ?";
 
-    private static final String QUERY_TO_CHECK_REGISTERED_ADMIN = "SELECT * FROM ADMINS where first_name=? " +
+    private static final String QUERY_TO_CHECK_REGISTERED_ADMIN = "SELECT * FROM admins where first_name=? " +
             "AND phone=? AND father_name=? AND email=?";
 
     private final PasswordEncoder passwordEncoder;

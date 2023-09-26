@@ -19,17 +19,17 @@ public class SemesterDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(SemesterDao.class);
 
-    private static final String INSERT_SEMESTER="INSERT INTO SEMESTERS (sem_id, sem_name, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?)";
+    private static final String INSERT_SEMESTER="INSERT INTO semesters (sem_id, sem_name, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?)";
 
-    private static final String SELECT_SEMESTER="SELECT * FROM SEMESTERS where sem_id = ?";
+    private static final String SELECT_SEMESTER="SELECT * FROM semesters where sem_id = ?";
 
-    private static final String UPDATE_SEMESTER="UPDATE SEMESTERS set sem_name=?, create_ts=?, update_ts=?, create_by=?, update_by=? WHERE sem_id=?";
+    private static final String UPDATE_SEMESTER="UPDATE semesters set sem_name=?, create_ts=?, update_ts=?, create_by=?, update_by=? WHERE sem_id=?";
 
-    private static final String DELETE_SEMESTER_BY_ID = "DELETE FROM SEMESTERS WHERE sem_id = ?";
+    private static final String DELETE_SEMESTER_BY_ID = "DELETE FROM semesters WHERE sem_id = ?";
 
-    private static final String SELECT_ALL_SEMESTERS="SELECT * FROM SEMESTERS";
+    private static final String SELECT_ALL_SEMESTERS="SELECT * FROM semesters";
 
-    private static final String QUERY_TO_CHECK_EXIST_SEMESTERS="SELECT * FROM SEMESTERS where sem_name=?";
+    private static final String QUERY_TO_CHECK_EXIST_SEMESTERS="SELECT * FROM semesters where sem_name=?";
 
     private final DataSource dataSource;
 

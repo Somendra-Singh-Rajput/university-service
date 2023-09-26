@@ -20,14 +20,14 @@ public class UserDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserDao.class);
 
-    private static final String INSERT_USER_CREDENTIALS="INSERT INTO USERS (user_id, email, password, old_password, role, " +
+    private static final String INSERT_USER_CREDENTIALS="INSERT INTO users (user_id, email, password, old_password, role, " +
             "isenabled, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?,?,?,?,?)";
 
-    private static final String SELECT_USER_CREDENTIALS="SELECT * FROM USERS where user_id = ?";
+    private static final String SELECT_USER_CREDENTIALS="SELECT * FROM users where user_id = ?";
 
-    private static final String UPDATE_USER_CREDENTIALS="UPDATE USERS set password=?, old_password=?, update_ts=?, update_by=? WHERE user_id=?";
+    private static final String UPDATE_USER_CREDENTIALS="UPDATE users set password=?, old_password=?, update_ts=?, update_by=? WHERE user_id=?";
 
-    private static final String DELETE_USER_DATA_BY_ID = "DELETE FROM USERS WHERE user_id = ?";
+    private static final String DELETE_USER_DATA_BY_ID = "DELETE FROM users WHERE user_id = ?";
 
     private final DataSource dataSource;
 

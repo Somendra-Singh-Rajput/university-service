@@ -27,29 +27,29 @@ public class TeacherDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(TeacherDao.class);
 
-    private static final String INSERT_TEACHER_TABLE = "INSERT INTO TEACHERS(teacher_id, first_name, last_name, email, " +
+    private static final String INSERT_TEACHER_TABLE = "INSERT INTO teachers(teacher_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, street, city, state, country, expertise, dept_id, profile_photo" +
             "doj, dol, role, isEnabled, create_ts, update_ts, create_by, update_by, " +
             "password, old_password, position, reporting_to, office_location, official_email) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private static final String INSERT_TEACHER_HISTORY_TABLE = "INSERT INTO TEACHERS_AUDIT(teacher_id, first_name, last_name, email, " +
+    private static final String INSERT_TEACHER_HISTORY_TABLE = "INSERT INTO teachers_audit(teacher_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, street, city, state, country, expertise, dept_id, " +
             "create_ts, update_ts, profile_photo, create_by, update_by, " +
             "doj, dol, role, password, old_password, isEnabled, position, reporting_to, office_location, official_email) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SELECT_TEACHER_DATA_BY_ID = "SELECT * FROM TEACHERS WHERE teacher_id = ?";
+    private static final String SELECT_TEACHER_DATA_BY_ID = "SELECT * FROM teachers WHERE teacher_id = ?";
 
-    private static final String SELECT_ALL_TEACHERS_DATA = "SELECT * FROM TEACHERS";
+    private static final String SELECT_ALL_TEACHERS_DATA = "SELECT * FROM teachers";
 
-    private static final String DELETE_TEACHER_DATA_BY_ID = "DELETE FROM TEACHERS WHERE teacher_id = ?";
+    private static final String DELETE_TEACHER_DATA_BY_ID = "DELETE FROM teachers WHERE teacher_id = ?";
 
-    private static final String UPDATE_TEACHER_DATA_BY_ID = "UPDATE TEACHERS SET first_name=?, last_name=?, " +
+    private static final String UPDATE_TEACHER_DATA_BY_ID = "UPDATE teachers SET first_name=?, last_name=?, " +
             "phone=?, dob=?, gender=?, father_name=?, mother_name=?, street=?, city=?, state=?, country=?, expertise=?, dept_id=?, " +
             "profile_photo=?, doj=?, dol=?, role=?, isEnabled=?, create_ts, update_ts=?," +
             "create_by, update_by=?, position=?, reporting_to=?, office_location=?, official_email=? WHERE teacher_id = ?";
 
-    private static final String QUERY_TO_CHECK_REGISTERED_TEACHER = "SELECT * FROM TEACHERS where first_name=? " +
+    private static final String QUERY_TO_CHECK_REGISTERED_TEACHER = "SELECT * FROM teachers where first_name=? " +
             "AND phone=? AND father_name=? AND email=?";
 
     private final PasswordEncoder passwordEncoder;
