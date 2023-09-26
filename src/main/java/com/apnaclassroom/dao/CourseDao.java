@@ -19,17 +19,17 @@ public class CourseDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(CourseDao.class);
 
-    private static final String INSERT_COURSE="INSERT INTO COURSES (course_id, course_name, dept_id, duration, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?,?,?)";
+    private static final String INSERT_COURSE="INSERT INTO courses (course_id, course_name, dept_id, duration, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?,?,?)";
 
-    private static final String SELECT_COURSE="SELECT * FROM COURSES where course_id = ?";
+    private static final String SELECT_COURSE="SELECT * FROM courses where course_id = ?";
 
-    private static final String UPDATE_COURSE="UPDATE COURSES set course_name=?, dept_id=?, duration=?, create_ts=?, update_ts=?, create_by=?, update_by=? WHERE course_id=?";
+    private static final String UPDATE_COURSE="UPDATE courses set course_name=?, dept_id=?, duration=?, create_ts=?, update_ts=?, create_by=?, update_by=? WHERE course_id=?";
 
-    private static final String DELETE_COURSE_BY_ID = "DELETE FROM COURSES WHERE course_id = ?";
+    private static final String DELETE_COURSE_BY_ID = "DELETE FROM courses WHERE course_id = ?";
 
-    private static final String SELECT_ALL_COURSES="SELECT * FROM COURSES";
+    private static final String SELECT_ALL_COURSES="SELECT * FROM courses";
 
-    private static final String QUERY_TO_CHECK_EXIST_COURSES="SELECT * FROM COURSES where course_name=?";
+    private static final String QUERY_TO_CHECK_EXIST_COURSES="SELECT * FROM courses where course_name=?";
 
     private final DataSource dataSource;
 

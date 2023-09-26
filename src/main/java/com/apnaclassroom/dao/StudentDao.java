@@ -26,25 +26,25 @@ public class StudentDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(StudentDao.class);
 
-    private static final String INSERT_STUDENT_TABLE = "INSERT INTO STUDENTS(student_id, first_name, last_name, email, " +
+    private static final String INSERT_STUDENT_TABLE = "INSERT INTO students(student_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, " +
             "street, city, state, country, course_id, dept_id, create_ts, update_ts, profile_photo, create_by, update_by) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private static final String INSERT_STUDENT_HISTORY_TABLE = "INSERT INTO STUDENTS_AUDIT(student_id, first_name, last_name, email, " +
+    private static final String INSERT_STUDENT_HISTORY_TABLE = "INSERT INTO students_audit(student_id, first_name, last_name, email, " +
             "phone, dob, gender, father_name, mother_name, " +
             "street, city, state, country, course_id, dept_id, create_ts, update_ts, profile_photo, create_by, update_by) " +
             "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SELECT_STUDENT_DATA_BY_ID = "SELECT * FROM STUDENTS WHERE student_id = ?";
+    private static final String SELECT_STUDENT_DATA_BY_ID = "SELECT * FROM students WHERE student_id = ?";
 
-    private static final String SELECT_ALL_STUDENTS_DATA = "SELECT * FROM STUDENTS";
+    private static final String SELECT_ALL_STUDENTS_DATA = "SELECT * FROM students";
 
-    private static final String DELETE_STUDENT_DATA_BY_ID = "DELETE FROM STUDENTS WHERE student_id = ?";
-    private static final String UPDATE_STUDENT_DATA_BY_ID = "UPDATE STUDENTS SET first_name=?, last_name=?, " +
+    private static final String DELETE_STUDENT_DATA_BY_ID = "DELETE FROM students WHERE student_id = ?";
+    private static final String UPDATE_STUDENT_DATA_BY_ID = "UPDATE students SET first_name=?, last_name=?, " +
             "phone=?, dob=?, gender=?, father_name=?, mother_name=?, street=?, city=?, state=?, country=?," +
             "course_id=?, dept_id=?, create_ts, update_ts, profile_photo=?, create_by=?, update_by=? WHERE student_id = ?";
 
-    private static final String QUERY_TO_CHECK_REGISTERED_STUDENT = "SELECT * FROM STUDENTS where first_name=? " +
+    private static final String QUERY_TO_CHECK_REGISTERED_STUDENT = "SELECT * FROM students where first_name=? " +
             "AND phone=? AND father_name=? AND email=?";
 
     private final DataSource dataSource;

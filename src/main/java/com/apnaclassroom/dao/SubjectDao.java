@@ -19,17 +19,17 @@ public class SubjectDao {
 
     private static final Logger LOG = LoggerFactory.getLogger(SubjectDao.class);
 
-    private static final String INSERT_SUBJECT="INSERT INTO SUBJECTS (subj_id, subj_name, course_id, sem_id, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?)";
+    private static final String INSERT_SUBJECT="INSERT INTO subjects (subj_id, subj_name, course_id, sem_id, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?)";
 
-    private static final String SELECT_SUBJECT="SELECT * FROM SUBJECTS where subj_id = ?";
+    private static final String SELECT_SUBJECT="SELECT * FROM subjects where subj_id = ?";
 
-    private static final String UPDATE_SUBJECT="UPDATE SUBJECTS set subj_name=?, course_id=?, sem_id=?, create_ts,=?, update_ts=?, create_by=?, update_by=? WHERE subj_id=?";
+    private static final String UPDATE_SUBJECT="UPDATE subjects set subj_name=?, course_id=?, sem_id=?, create_ts,=?, update_ts=?, create_by=?, update_by=? WHERE subj_id=?";
 
-    private static final String DELETE_SUBJECT_BY_ID = "DELETE FROM SUBJECTS WHERE subj_id = ?";
+    private static final String DELETE_SUBJECT_BY_ID = "DELETE FROM subjects WHERE subj_id = ?";
 
-    private static final String SELECT_ALL_SUBJECT="SELECT * FROM SUBJECTS";
+    private static final String SELECT_ALL_SUBJECT="SELECT * FROM subjects";
 
-    private static final String QUERY_TO_CHECK_EXIST_SUBJECT="SELECT * FROM SUBJECTS where subj_name=?";
+    private static final String QUERY_TO_CHECK_EXIST_SUBJECT="SELECT * FROM subjects where subj_name=?";
 
     private final DataSource dataSource;
 

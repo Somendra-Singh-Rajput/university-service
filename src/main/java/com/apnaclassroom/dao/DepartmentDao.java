@@ -18,17 +18,17 @@ import java.util.Objects;
 public class DepartmentDao {
     private static final Logger LOG = LoggerFactory.getLogger(DepartmentDao.class);
 
-    private static final String INSERT_DEPTS="INSERT INTO DEPARTMENTS (dept_id, dept_name, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?)";
+    private static final String INSERT_DEPTS="INSERT INTO departments (dept_id, dept_name, create_ts, update_ts, create_by, update_by) VALUE (?,?,?,?,?,?)";
 
-    private static final String SELECT_DEPTS="SELECT * FROM DEPARTMENTS where dept_id = ?";
+    private static final String SELECT_DEPTS="SELECT * FROM departments where dept_id = ?";
 
-    private static final String UPDATE_DEPTS="UPDATE DEPARTMENTS set dept_name=?, create_ts=?, update_ts=?, create_by=?, update_by=? WHERE dept_id=?";
+    private static final String UPDATE_DEPTS="UPDATE departments set dept_name=?, create_ts=?, update_ts=?, create_by=?, update_by=? WHERE dept_id=?";
 
-    private static final String DELETE_DEPTS_BY_ID = "DELETE FROM DEPARTMENTS WHERE dept_id = ?";
+    private static final String DELETE_DEPTS_BY_ID = "DELETE FROM departments WHERE dept_id = ?";
 
-    private static final String SELECT_ALL_DEPTS="SELECT * FROM DEPARTMENTS";
+    private static final String SELECT_ALL_DEPTS="SELECT * FROM departments";
 
-    private static final String QUERY_TO_CHECK_EXIST_DEPTS="SELECT * FROM DEPARTMENTS where dept_name=?";
+    private static final String QUERY_TO_CHECK_EXIST_DEPTS="SELECT * FROM departments where dept_name=?";
 
     private final DataSource dataSource;
 
