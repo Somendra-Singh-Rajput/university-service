@@ -1,6 +1,7 @@
 package com.apnaclassroom.authenticate;
 
 import com.apnaclassroom.dao.TokenDao;
+import com.apnaclassroom.model.Status;
 import com.apnaclassroom.model.user.RegisterRequest;
 import com.apnaclassroom.model.user.RegisterResponse;
 import com.apnaclassroom.service.EmailService;
@@ -78,5 +79,10 @@ public class AuthController {
     if(deleteCount > 0){
       LOG.info("{} expired tokens deleted from table", deleteCount);
     }
+  }
+
+  @GetMapping("/health")
+  public ResponseEntity<Status> getHealthStatus() {
+    return ResponseEntity.ok(Status.builder().status("UP").statusCode(HttpStatus.OK.toString()).build());
   }
 }

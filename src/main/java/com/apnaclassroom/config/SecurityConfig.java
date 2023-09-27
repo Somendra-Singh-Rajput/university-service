@@ -47,7 +47,8 @@ public class SecurityConfig {
                 "/configuration/security",
                 "/swagger-ui/**",
                 "/webjars/**",
-                "/swagger-ui.html/**"
+                "/swagger-ui.html/**",
+                "/actuator/**"
         ).permitAll()
 
          //These paths are accessible by anyone who has below roles
