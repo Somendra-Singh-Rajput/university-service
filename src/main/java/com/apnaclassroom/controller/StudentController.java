@@ -6,6 +6,7 @@ import com.apnaclassroom.model.user.RegisterResponse;
 import com.apnaclassroom.model.user.User;
 import com.apnaclassroom.service.StudentService;
 import com.mysql.cj.util.StringUtils;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -19,6 +20,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/student")
+@SecurityRequirement(name = "bearerAuth")
 public class StudentController {
 
     private static final Logger LOG = LoggerFactory.getLogger(StudentController.class);

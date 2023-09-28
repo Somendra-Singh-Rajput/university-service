@@ -7,6 +7,7 @@ import com.apnaclassroom.model.user.User;
 import com.apnaclassroom.service.AdminService;
 import com.mysql.cj.util.StringUtils;
 import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -20,6 +21,7 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/api/v1/admin")
 @PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 public class AdminController {
 
     private static final Logger LOG = LoggerFactory.getLogger(AdminController.class);

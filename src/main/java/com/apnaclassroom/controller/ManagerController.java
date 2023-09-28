@@ -7,6 +7,7 @@ import com.apnaclassroom.service.ManagerService;
 import com.mysql.cj.util.StringUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/manager")
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "Management")
 public class ManagerController {
 
