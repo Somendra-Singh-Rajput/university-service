@@ -15,20 +15,20 @@ public class LogoutService implements LogoutHandler {
 
   private final TokenDao tokenDao;
 
+  private final JwtService jwtService;
+
   @Override
   public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
     final String authHeader = request.getHeader("Authorization");
-    final String jwt;
     if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
       return;
     }
-    jwt = authHeader.substring(7);
-    var storedToken = tokenDao.findByToken(jwt)
+    var storedToken = tokenDao.findByToken(jwtService.extractTokenId(authHeader.substring(7)))
         .orElse(null);
     if (storedToken != null) {
       storedToken.setExpired(true);
       storedToken.setRevoked(true);
-      tokenDao.saveToken(storedToken);
+      tokenDao.updateTokenToExpire(storedToken);
       SecurityContextHolder.clearContext();
     }
   }

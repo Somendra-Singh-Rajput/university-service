@@ -1,7 +1,6 @@
 package com.apnaclassroom.dao;
 
 import com.apnaclassroom.enums.TokenType;
-import com.apnaclassroom.model.management.Course;
 import com.apnaclassroom.model.user.Token;
 import com.apnaclassroom.model.user.User;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -28,7 +27,7 @@ public class TokenDao {
 
     private static final String UPDATE_TOKEN_TO_EXPIRE="UPDATE tokens SET expired= ?, revoked = ? where token_id = ?";
 
-    private static final String DELETE_EXPIRED_TOKEN_="DELETE FROM tokens where expired=1 and revoked=1";
+    private static final String DELETE_EXPIRED_TOKEN="DELETE FROM tokens where expired=1 and revoked=1";
 
     private final DataSource dataSource;
 
@@ -155,7 +154,7 @@ public class TokenDao {
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement
-                     = connection.prepareStatement(DELETE_EXPIRED_TOKEN_, Statement.RETURN_GENERATED_KEYS)) {
+                     = connection.prepareStatement(DELETE_EXPIRED_TOKEN, Statement.RETURN_GENERATED_KEYS)) {
             deleteCount = preparedStatement.executeUpdate();
 
             if(deleteCount == 0){
