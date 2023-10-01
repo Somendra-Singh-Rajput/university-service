@@ -78,6 +78,7 @@ public class AuthController {
   }
 
   //@Scheduled(fixedRate = 600000) // Run every 10 minutes (10 * 60,000 milliseconds)
+  @GetMapping("/deleteExpiredTokens")
   public void deleteExpiredTokens() {
     LOG.info("Expired token cleanup scheduled method triggered");
     int deleteCount = tokenDao.deleteExpiredTokens();
