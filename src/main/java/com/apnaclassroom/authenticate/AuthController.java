@@ -5,6 +5,7 @@ import com.apnaclassroom.model.Status;
 import com.apnaclassroom.model.user.RegisterRequest;
 import com.apnaclassroom.model.user.RegisterResponse;
 import com.apnaclassroom.service.EmailService;
+import com.mysql.cj.util.StringUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -58,13 +59,17 @@ public class AuthController {
             .message("Logged out successfully!").build();
   }
 
-  @GetMapping("/sendTestEmail")
-  public String sendTestEmail() {
-    String to = "singhsomendra420@gmail.com";
+  @PostMapping("/sendTestEmail")
+  public String sendTestEmail(@RequestBody String email) {
+
+    if(StringUtils.isNullOrEmpty(email)){
+      return "Email address can't be empty";
+    }
+
     String subject = "Test Email";
     String text = "This is a test email sent from a Spring Boot application.";
 
-    boolean emailStatus = emailService.sendEmail(to, subject, text);
+    boolean emailStatus = emailService.sendEmail(email, subject, text);
     if(emailStatus){
       return "Email sent successfully!";
     } else{
@@ -72,7 +77,7 @@ public class AuthController {
     }
   }
 
-  @Scheduled(fixedRate = 600000) // Run every 10 minutes (10 * 60,000 milliseconds)
+  //@Scheduled(fixedRate = 600000) // Run every 10 minutes (10 * 60,000 milliseconds)
   public void deleteExpiredTokens() {
     LOG.info("Expired token cleanup scheduled method triggered");
     int deleteCount = tokenDao.deleteExpiredTokens();

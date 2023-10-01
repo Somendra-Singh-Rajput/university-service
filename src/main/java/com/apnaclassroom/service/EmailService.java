@@ -1,5 +1,6 @@
 package com.apnaclassroom.service;
 
+import com.apnaclassroom.util.CommonUtility;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,20 +22,25 @@ public class EmailService {
         this.javaMailSender = javaMailSender;
     }
 
-    public boolean sendEmail(String to, String subject, String text) {
-        LOG.info("Sending email to EmailId: {}", to);
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(to);
-            message.setSubject(subject);
-            message.setText(text);
+    public boolean sendEmail(String toEmail, String subject, String text) {
+        if (CommonUtility.isValidEmail(toEmail)) {
+            LOG.info("Sending email to EmailId: {}", toEmail);
+            try {
+                SimpleMailMessage message = new SimpleMailMessage();
+                message.setTo(toEmail);
+                message.setSubject(subject);
+                message.setText(text);
 
-            javaMailSender.send(message);
+                javaMailSender.send(message);
 
-            return true; //Email sent successfully
-        } catch (MailException ex) {
-            LOG.error("An error occurred while sending email, Exception: {}", ExceptionUtils.getStackTrace(ex));
-            return false; //Email sending failed
+                return true; //Email sent successfully
+            } catch (MailException ex) {
+                LOG.error("An error occurred while sending email, Exception: {}", ExceptionUtils.getStackTrace(ex));
+                return false; //Email sending failed
+            }
+        } else {
+            LOG.info("Provided email address is not a valid email address!");
+            return false;
         }
     }
 }
